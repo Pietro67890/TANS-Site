@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TANS — Pashminas em toque de cashmere</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #F7F3EB;
+    --ivory-deep: #F1EAD9;
+    --charcoal: #2B2622;
+    --gold: #A8895C;
+    --gold-soft: #C7AD86;
+    --moss: #6B7560;
+    --card: #EDE6D9;
+    --line: rgba(43, 38, 34, 0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ivory);
+    color: var(--charcoal);
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .display {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .fringe {
+    display: flex;
+    gap: 6px;
+    align-items: flex-start;
+  }
+  .fringe span {
+    width: 1px;
+    background: var(--gold-soft);
+    display: block;
+  }
+
+  /* ---------- NAV ---------- */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(247, 243, 235, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 22px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-size: 1.6rem;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+  }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    font-size: 0.92rem;
+    letter-spacing: 0.03em;
+    color: var(--charcoal);
+  }
+  .nav-links a { opacity: 0.75; transition: opacity 0.2s; }
+  .nav-links a:hover { opacity: 1; }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 96px 32px 80px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .hero-eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--moss);
+    margin-bottom: 22px;
+    display: block;
+  }
+  .hero h1 {
+    font-size: clamp(2.6rem, 5vw, 4.2rem);
+    line-height: 1.04;
+    margin-bottom: 28px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero p {
+    font-size: 1.08rem;
+    line-height: 1.65;
+    color: rgba(43,38,34,0.78);
+    max-width: 460px;
+    margin-bottom: 38px;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--charcoal);
+    color: var(--ivory);
+    padding: 16px 30px;
+    font-size: 0.92rem;
+    letter-spacing: 0.04em;
+    border-radius: 2px;
+    transition: background 0.25s ease, transform 0.25s ease;
+  }
+  .btn-primary:hover { background: var(--gold); transform: translateY(-2px); }
+
+  .hero-visual {
+    position: relative;
+    aspect-ratio: 3/4;
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--card);
+  }
+  .hero-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hero-visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(43,38,34,0) 60%, rgba(43,38,34,0.28) 100%);
+  }
+  .hero-visual-tag {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    z-index: 2;
+    color: #fff;
+    font-size: 0.82rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* ---------- FRINGE DIVIDER ---------- */
+  .divider {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .divider .fringe {
+    height: 34px;
+    border-top: 1px solid var(--line);
+    padding-top: 14px;
+  }
+  .divider .fringe span:nth-child(odd) { height: 14px; }
+  .divider .fringe span:nth-child(even) { height: 22px; }
+  .divider .fringe span { flex: 1; max-width: 1px; }
+
+  /* ---------- INTRO STRIP ---------- */
+  .intro {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 70px 32px 30px;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 48px;
+  }
+  .intro-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--moss);
+    padding-top: 6px;
+  }
+  .intro-text {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    max-width: 720px;
+  }
+
+  /* ---------- PRODUCTS ---------- */
+  .products {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 50px 32px 110px;
+  }
+  .products-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 44px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .products-head h2 {
+    font-size: 2.1rem;
+  }
+  .products-head .count {
+    font-size: 0.85rem;
+    color: rgba(43,38,34,0.55);
+    letter-spacing: 0.04em;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px 28px;
+  }
+  @media (min-width: 880px) {
+    .grid { grid-template-columns: repeat(4, 1fr); }
+    .grid .card:nth-child(2) { margin-top: 36px; }
+    .grid .card:nth-child(4) { margin-top: 36px; }
+  }
+
+  .card {
+    background: var(--card);
+    border-radius: 3px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 32px -18px rgba(43,38,34,0.35);
+  }
+  .card-img {
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    position: relative;
+  }
+  .card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+  .card:hover .card-img img { transform: scale(1.045); }
+
+  .card-tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(247,243,235,0.92);
+    color: var(--charcoal);
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 2px;
+  }
+
+  .card-body {
+    padding: 20px 20px 22px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .card-body h3 {
+    font-size: 1.18rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    line-height: 1.25;
+  }
+  .card-body p {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: rgba(43,38,34,0.68);
+    flex: 1;
+    margin-bottom: 16px;
+  }
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+  }
+  .price {
+    font-family: 'Fraunces', serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+  }
+  .price-old {
+    font-size: 0.8rem;
+    text-decoration: line-through;
+    color: rgba(43,38,34,0.4);
+    margin-right: 6px;
+  }
+
+  .btn-whats {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: transparent;
+    border: 1px solid var(--charcoal);
+    color: var(--charcoal);
+    padding: 9px 16px;
+    font-size: 0.78rem;
+    letter-spacing: 0.03em;
+    border-radius: 2px;
+    transition: all 0.22s ease;
+    white-space: nowrap;
+  }
+  .btn-whats:hover {
+    background: var(--charcoal);
+    color: var(--ivory);
+  }
+  .btn-whats svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+  /* ---------- CARE / TRUST STRIP ---------- */
+  .strip {
+    background: var(--charcoal);
+    color: var(--ivory);
+    padding: 70px 32px;
+  }
+  .strip-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  .strip-item .num {
+    font-family: 'Fraunces', serif;
+    font-size: 0.85rem;
+    color: var(--gold-soft);
+    letter-spacing: 0.08em;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .strip-item h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .strip-item p {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: rgba(247,243,235,0.7);
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    padding: 56px 32px 40px;
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  footer .logo { font-size: 1.1rem; }
+  footer .foot-contact {
+    font-size: 0.85rem;
+    color: rgba(43,38,34,0.6);
+    text-align: right;
+  }
+  footer .foot-contact a {
+    color: var(--charcoal);
+    border-bottom: 1px solid var(--gold);
+  }
+
+  @media (max-width: 880px) {
+    .hero { grid-template-columns: 1fr; padding-top: 56px; }
+    .hero-visual { order: -1; }
+    .intro { grid-template-columns: 1fr; }
+    .strip-inner { grid-template-columns: 1fr; gap: 36px; }
+    .nav-links { display: none; }
+    .nav-inner { padding: 18px 20px; }
+    header .btn-primary { padding: 10px 14px; font-size: 0.74rem; }
+    .grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .grid .card:nth-child(2), .grid .card:nth-child(4) { margin-top: 0; }
+    .card-footer { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .btn-whats { width: 100%; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div class="logo">TANS</div>
+    <nav class="nav-links">
+      <a href="#colecao">Coleção</a>
+      <a href="#cuidados">Cuidados</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a href="https://wa.me/5511980575520?text=Ol%C3%A1!%20Vim%20pelo%20cat%C3%A1logo%20da%20TANS%20e%20gostaria%20de%20saber%20mais." class="btn-primary" style="padding:12px 22px; font-size:0.82rem;">Falar no WhatsApp</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <span class="hero-eyebrow">Toque de cashmere · Edição contínua</span>
+    <h1>O calor que se<br>usa com <em>elegância</em>.</h1>
+    <p>Pashminas em toque de cashmere, tecidas para acompanhar o corpo e durar estações. Cada peça é escolhida a dedo — poucas cores, qualidade que se sente ao toque.</p>
+    <a href="#colecao" class="btn-primary">Ver coleção →</a>
+  </div>
+  <div class="hero-visual">
+    <img src="images/Pashimina_001.jpeg" alt="Pashmina TANS tom areia">
+    <div class="hero-visual-tag">Pashmina Areia Suave</div>
+  </div>
+</section>
+
+<div class="divider">
+  <div class="fringe">
+    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+</div>
+
+<section class="intro">
+  <div class="intro-label">Sobre a TANS</div>
+  <p class="intro-text">Acreditamos que uma pashmina não é apenas um acessório de inverno — é a peça que se pega no escuro, sem pensar, e que sempre acerta. Por isso trabalhamos com toque de cashmere em poucas cores, bem escolhidas.</p>
+</section>
+
+<section class="products" id="colecao">
+  <div class="products-head">
+    <h2>Coleção atual</h2>
+    <span class="count">19 peças disponíveis</span>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-img">
+        <span class="card-tag">Lisa</span>
+        <img src="images/Pashimina_001.jpeg" alt="Pashmina 001 toque de cashmere Areia">
+      </div>
+      <div class="card-body">
+        <h3>Pashmina 001</h3>
+        <p>Toque de cashmere em tom areia contínuo, sem estampa. Versátil para compor com qualquer look, do casual ao social — a primeira pashmina de qualquer guarda-roupa.</p>
+        <div class="card-footer">
+          <span class="price">R$ 60,00</span>
+          <a class="btn-whats" href="https://wa.me/5511980575520?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20a%20Pashmina%20001%20%28Areia%29%20%28R%24%2060%2C00%29.">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.44 5.13L2 22l5.13-1.55a9.8 9.8 0 0 0 4.91 1.32h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.13-2.9-7C17.18 3.03 14.69 2 12.04 2zm0 18.02h-.01a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.04.92.92-2.96-.19-.31a8.13 8.13 0 0 1-1.25-4.36c0-4.49 3.65-8.14 8.15-8.14 2.18 0 4.22.85 5.76 2.39a8.07 8.07 0 0 1 2.38 5.76c0 4.49-3.66 8.14-8.15 8.14zm4.47-6.1c-.24-.12-1.45-.71-1.67-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.95-1.2-.72-.64-1.21-1.43-1.35-1.67-.14-.24-.01-.37.11-.49.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.04-.46-.08-.12-.5-1.2-.68-1.65-.18-.43-.37-.37-.51-.38-.13-.01-.29-.01-.45-.01s-.42.06-.64.3c-.22.24-.85.83-.85 2.02s.87 2.34 1 2.5c.12.16 1.7 2.6 4.13 3.54 2.43.94 2.43.63 2.87.59.43-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <span class="card-tag">Xadrez</span>
+        <img src="images/Pashimina_002.jpeg" alt="Pashmina 002 toque de cashmere Areia">
+      </div>
+      <div class="card-body">
+        <h3>Pashmina 002</h3>
+        <p>Toque de cashmere em xadrez bege com finas linhas marrons, tecido em padrão windowpane. Traz textura discreta sem perder a leveza do look.</p>
+        <div class="card-footer">
+          <span class="price">R$ 60,00</span>
+          <a class="btn-whats" href="https://wa.me/5511980575520?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20a%20Pashmina%20002%20%28Areia%29%20%28R%24%2060%2C00%29.">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.44 5.13L2 22l5.13-1.55a9.8 9.8 0 0 0 4.91 1.32h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.13-2.9-7C17.18 3.03 14.69 2 12.04 2zm0 18.02h-.01a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.04.92.92-2.96-.19-.31a8.13 8.13 0 0 1-1.25-4.36c0-4.49 3.65-8.14 8.15-8.14 2.18 0 4.22.85 5.76 2.39a8.07 8.07 0 0 1 2.38 5.76c0 4.49-3.66 8.14-8.15 8.14zm4.47-6.1c-.24-.12-1.45-.71-1.67-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.95-1.2-.72-.64-1.21-1.43-1.35-1.67-.14-.24-.01-.37.11-.49.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.04-.46-.08-.12-.5-1.2-.68-1.65-.18-.43-.37-.37-.51-.38-.13-.01-.29-.01-.45-.01s-.42.06-.64.3c-.22.24-.85.83-.85 2.02s.87 2.34 1 2.5c.12.16 1.7 2.6 4.13 3.54 2.43.94 2.43.63 2.87.59.43-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <span class="card-tag">Lisa</span>
+        <img src="images/Pashimina_003.jpeg" alt="Pashmina 003 toque de cashmere Verde-Água">
+      </div>
+      <div class="card-body">
+        <h3>Pashmina 003</h3>
+        <p>Toque de cashmere em verde-água acinzentado, lisa e fluida. Um tom raro de encontrar, que ilumina peças neutras e traz frescor ao look de inverno.</p>
+        <div class="card-footer">
+          <span class="price">R$ 60,00</span>
+          <a class="btn-whats" href="https://wa.me/5511980575520?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20a%20Pashmina%20003%20%28Verde-%C3%81gua%29%20%28R%24%2060%2C00%29.">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.44 5.13L2 22l5.13-1.55a9.8 9.8 0 0 0 4.91 1.32h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.13-2.9-7C17.18 3.03 14.69 2 12.04 2zm0 18.02h-.01a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.04.92.92-2.96-.19-.31a8.13 8.13 0 0 1-1.25-4.36c0-4.49 3.65-8.14 8.15-8.14 2.18 0 4.22.85 5.76 2.39a8.07 8.07 0 0 1 2.38 5.76c0 4.49-3.66 8.14-8.15 8.14zm4.47-6.1c-.24-.12-1.45-.71-1.67-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.95-1.2-.72-.64-1.21-1.43-1.35-1.67-.14-.24-.01-.37.11-.49.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.04-.46-.08-.12-.5-1.2-.68-1.65-.18-.43-.37-.37-.51-.38-.13-.01-.29-.01-.45-.01s-.42.06-.64.3c-.22.24-.85.83-.85 2.02s.87 2.34 1 2.5c.12.16 1.7 2.6 4.13 3.54 2.43.94 2.43.63 2.87.59.43-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <span class="card-tag">Xadrez</span>
+        <img src="images/Pashimina_004.jpeg" alt="Pashmina 004 toque de cashmere Verde">
+      </div>
+      <div class="card-body">
+        <h3>Pashmina 004</h3>
+        <p>Toque de cashmere em padrão quadriculado, com dois tons de verde que se alternam em harmonia. Uma peça com mais presença, ideal para dar personalidade ao look.</p>
+        <div class="card-footer">
+          <span class="price">R$ 60,00</span>
+          <a class="btn-whats" href="https://wa.me/5511980575520?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20a%20Pashmina%20004%20%28Verde%29%20%28R%24%2060%2C00%29.">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.44 5.13L2 22l5.13-1.55a9.8 9.8 0 0 0 4.91 1.32h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.13-2.9-7C17.18 3.03 14.69 2 12.04 2zm0 18.02h-.01a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.04.92.92-2.96-.19-.31a8.13 8.13 0 0 1-1.25-4.36c0-4.49 3.65-8.14 8.15-8.14 2.18 0 4.22.85 5.76 2.39a8.07 8.07 0 0 1 2.38 5.76c0 4.49-3.66 8.14-8.15 8.14zm4.47-6.1c-.24-.12-1.45-.71-1.67-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.95-1.2-.72-.64-1.21-1.43-1.35-1.67-.14-.24-.01-.37.11-.49.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.04-.46-.08-.12-.5-1.2-.68-1.65-.18-.43-.37-.37-.51-.38-.13-.01-.29-.01-.45-.01s-.42.06-.64.3c-.22.24-.85.83-.85 2.02s.87 2.34 1 2.5c.12.16 1.7 2.6 4.13 3.54 2.43.94 2.43.63 2.87.59.43-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <span class="card-tag">Xadrez</span>
+        <img src="images/Pashimina_005.jpeg" alt="Pashmina 005 toque de cashmere Bege & Azul">
+      </div>
+      <div class="card-body">
+        <h3>Pashmina 005</h3>
+        <p>Toque de cashmere em xadrez bege com listras finas em azul e marrom. Um clássico atemporal que combina com casacos e tricôs de inverno.</p>
+        <div class="card-footer">
+          <span class="price">R$ 60,00</span>
+          <a class="btn-whats" href="https://wa.me/5511980575520?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20a%20Pashmina%20005%20%28Bege%20%26%20Azul%29%20%28R%24%2060%2C00%29.">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.44 5.13L2 22l5.13-1.55a9.8 9.8 0 0 0 4.91 1.32h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.13-2.9-7C17.18 3.03 14.69 2 12.04 2zm0 18.02h-.01a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.04.92.92-2.96-.19-.31a8.13 8.13 0 0 1-1.25-4.36c0-4.49 3.65-8.14 8.15-8.14 2.18 0 4.22.85 5.76 2.39a8.07 8.07 0 0 1 2.38 5.76c0 4.49-3.66 8.14-8.15 8.14zm4.47-6.1c-.24-.12-1.45-.71-1.67-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.95-1.2-.72-.64-1.21-1.43-1.35-1.67-.14-.24-.01-.37.11-.49.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.04-.46-.08-.12-.5-1.2-.68-1.65-.18-.43-.37-.37-.51-.38-.13-.01-.29-.01-.45-.01s-.42.06-.64.3c-.22.24-.85.83-.85 2.02s.87 2.34 1 2.5c.12.16 1.7 2.6 4.13 3.54 2.43.94 2.43.63 2.87.59.43-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <span class="card-tag">Lisa</span>
+        <img src="images/Pashimina_006.jpeg" alt="Pashmina 006 toque de cashmere Rosa">
+      </div>
+      <div class="card-body">
+        <h3>Pashmina 006</h3>
+        <p>Toque de cashmere em rosa empoeirado, lisa e delicada. Um tom suave que traz romantismo e contraste elegante com trench coats e tons neutros.</p>
+        <div class="card-footer">
+          <span class="price">R$ 60,00</span>
+          <a class="btn-whats" href="https://wa.me/5511980575520?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20a%20Pashmina%20006%20%28Rosa%29%20%28R%24%2060%2C00%29.">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.44 5.13L2 22l5.13-1.55a9.8 9.8 0 0 0 4.91 1.32h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.13-2.9-7C17.18 3.03 14.69 2 12.04 2zm0 18.02h-.01a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.04.92.92-2.96-.19-.31a8.13 8.13 0 0 1-1.25-4.36c0-4.49 3.65-8.14 8.15-8.14 2.18 0 4.22.85 5.76 2.39a8.07 8.07 0 0 1 2.38 5.76c0 4.49-3.66 8.14-8.15 8.14zm4.47-6.1c-.24-.12-1.45-.71-1.67-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.95-1.2-.72-.64-1.21-1.43-1.35-1.67-.14-.24-.01-.37.11-.49.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.04-.46-.08-.12-.5-1.2-.68-1.65-.18-.43-.37-.37-.51-.38-.13-.01-.29-.01-.45-.01s-.42.06-.64.3c-.22.24-.85.83-.85 2.02s.87 2.34 1 2.5c.12.16 1.7 2.6 4.13 3.54 2.43.94 2.43.63 2.87.59.43-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <span class="card-tag">Xadrez</span>
+        <img src="images/Pashimina_007.jpeg" alt="Pashmina 007 toque de cashmere Verde Mil.">
+      </div>
+      <div class="card-body">
+        <h3>Pashmina 007</h3>
+        <p>Toque de cashmere em xadrez miúdo nas cores verde, marrom e azul. Uma estampa discreta de inspiração britânica, perfeita para compor looks de trabalho.</p>
+        <div class="card-footer">
+          <span class="price">R$ 60,00</span>
+          <a class="btn-whats" href="https://wa.me/5511980575520?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20a%20Pashmina%20007%20%28Verde%20Mil.%29%20%28R%24%2060%2C00%29.">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.44 5.13L2 22l5.13-1.55a9.8 9.8 0 0 0 4.91 1.32h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.13-2.9-7C17.18 3.03 14.69 2 12.04 2zm0 18.02h-.01a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.04.92.92-2.96-.19-.31a8.13 8.13 0 0 1-1.25-4.36c0-4.49 3.65-8.14 8.15-8.14 2.18 0 4.22.85 5.76 2.39a8.07 8.07 0 0 1 2.38 5.76c0 4.49-3.66 8.14-8.15 8.14zm4.47-6.1c-.24-.12-1.45-.71-1.67-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.95-1.2-.72-.64-1.21-1.43-1.35-1.67-.14-.24-.01-.37.11-.49.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.04-.46-.08-.12-.5-1.2-.68-1.65-.18-.43-.37-.37-.51-.38-.13-.01-.29-.01-.45-.01s-.42.06-.64.3c-.22.24-.85.83-.85 2.02s.87 2.34 1 2.5c.12.16 1.7 2.6 4.13 3.54 2.43.94 2.43.63 2.87.59.43-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <span class="card-tag">Lisa</span>
+        <img src="images/Pashimina_008.jpeg" alt="Pashmina 008 toque de cashmere Off-White">
+      </div>
+      <div class="card-body">
+        <h3>Pashmina 008</h3>
+        <p>Toque de cashmere em off-white puro, lisa e atemporal. A pashmina essencial que combina com absolutamente tudo, do dia a dia aos eventos.</p>
+        <div class="card-footer">
+          <span class="price">R$ 60,00</span>
+          <a class="btn-whats" href="https://wa.me/5511980575520?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20a%20Pashmina%20008%20%28Off-White%29%20%28R%24%2060%2C00%29.">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.44 5.13L2 22l5.13-1.55a9.8 9.8 0 0 0 4.91 1.32h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.13-2.9-7C17.18 3.03 14.69 2 12.04 2zm0 18.02h-.01a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.04.92.92-2.96-.19-.31a8.13 8.13 0 0 1-1.25-4.36c0-4.49 3.65-8.14 8.15-8.14 2.18 0 4.22.85 5.76 2.39a8.07 8.07 0 0 1 2.38 5.76c0 4.49-3.66 8.14-8.15 8.14zm4.47-6.1c-.24-.12-1.45-.71-1.67-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.95-1.2-.72-.64-1.21-1.43-1.35-1.67-.14-.24-.01-.37.11-.49.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.04-.46-.08-.12-.5-1.2-.68-1.65-.18-.43-.37-.37-.51-.38-.13-.01-.29-.01-.45-.01s-.42.06-.64.3c-.22.24-.85.83-.85 2.02s.87 2.34 1 2.5c.12.16 1.7 2.6 4.13 3.54 2.43.94 2.43.63 2.87.59.43-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <span class="card-tag">Animal Print</span>
+        <img src="images/Pashimina_009.jpeg" alt="Pashmina 009 toque de cashmere Onça">
+      </div>
+      <div class="card-body">
+        <h3>Pashmina 009</h3>
+        <p>Toque de cashmere com estampa animal print em tons de caramelo e preto. Uma escolha cheia de personalidade para quem gosta de um look mais statement.</p>
+        <div class="card-footer">
+          <span class="price">R$ 60,00</span>
+          <a class="btn-whats" href="https://wa.me/5511980575520?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20a%20Pashmina%20009%20%28On%C3%A7a%29%20%28R%24%2060%2C00%29.">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.44 5.13L2 22l5.13-1.55a9.8 9.8 0 0 0 4.91 1.32h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.13-2.9-7C17.18 3.03 14.69 2 12.04 2zm0 18.02h-.01a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.04.92.92-2.96-.19-.31a8.13 8.13 0 0 1-1.25-4.36c0-4.49 3.65-8.14 8.15-8.14 2.18 0 4.22.85 5.76 2.39a8.07 8.07 0 0 1 2.38 5.76c0 4.49-3.66 8.14-8.15 8.14zm4.47-6.1c-.24-.12-1.45-.71-1.67-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.95-1.2-.72-.64-1.21-1.43-1.35-1.67-.14-.24-.01-.37.11-.49.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.04-.46-.08-.12-.5-1.2-.68-1.65-.18-.43-.37-.37-.51-.38-.13-.01-.29-.01-.45-.01s-.42.06-.64.3c-.22.24-.85.83-.85 2.02s.87 2.34 1 2.5c.12.16 1.7 2.6 4.13 3.54 2.43.94 2.43.63 2.87.59.43-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <span class="card-tag">Xadrez</span>
+        <img src="images/Pashimina_010.jpeg" alt="Pashmina 010 toque de cashmere Off-White">
+      </div>
+      <div class="card-body">
+        <h3>Pashmina 010</h3>
+        <p>Toque de cashmere em xadrez off-white com linhas em tons terrosos e azulados. Elegante e clara, ideal para iluminar produções de inverno.</p>
+        <div class="card-footer">
+          <span class="price">R$ 60,00</span>
+          <a class="btn-whats" href="https://wa.me/5511980575520?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20a%20Pashmina%20010%20%28Off-White%29%20%28R%24%2060%2C00%29.">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.44 5.13L2 22l5.13-1.55a9.8 9.8 0 0 0 4.91 1.32h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.13-2.9-7C17.18 3.03 14.69 2 12.04 2zm0 18.02h-.01a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.04.92.92-2.96-.19-.31a8.13 8.13 0 0 1-1.25-4.36c0-4.49 3.65-8.14 8.15-8.14 2.18 0 4.22.85 5.76 2.39a8.07 8.07 0 0 1 2.38 5.76c0 4.49-3.66 8.14-8.15 8.14zm4.47-6.1c-.24-.12-1.45-.71-1.67-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.95-1.2-.72-.64-1.21-1.43-1.35-1.67-.14-.24-.01-.37.11-.49.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.04-.46-.08-.12-.5-1.2-.68-1.65-.18-.43-.37-.37-.51-.38-.13-.01-.29-.01-.45-.01s-.42.06-.64.3c-.22.24-.85.83-.85 2.02s.87 2.34 1 2.5c.12.16 1.7 2.6 4.13 3.54 2.43.94 2.43.63 2.87.59.43-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <span class="card-tag">Xadrez</span>
+        <img src="images/Pashimina_011.jpeg" alt="Pashmina 011 toque de cashmere Off-White & Azul">
+      </div>
+      <div class="card-body">
+        <h3>Pashmina 011</h3>
+        <p>Toque de cashmere em xadrez off-white com quadros em azul-claro. Um padrão fresco e versátil, ótimo para compor com jeans ou alfaiataria.</p>
+        <div class="card-footer">
+          <span class="price">R$ 60,00</span>
+          <a class="btn-whats" href="https://wa.me/5511980575520?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20a%20Pashmina%20011%20%28Off-White%20%26%20Azul%29%20%28R%24%2060%2C00%29.">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.44 5.13L2 22l5.13-1.55a9.8 9.8 0 0 0 4.91 1.32h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.13-2.9-7C17.18 3.03 14.69 2 12.04 2zm0 18.02h-.01a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.04.92.92-2.96-.19-.31a8.13 8.13 0 0 1-1.25-4.36c0-4.49 3.65-8.14 8.15-8.14 2.18 0 4.22.85 5.76 2.39a8.07 8.07 0 0 1 2.38 5.76c0 4.49-3.66 8.14-8.15 8.14zm4.47-6.1c-.24-.12-1.45-.71-1.67-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.95-1.2-.72-.64-1.21-1.43-1.35-1.67-.14-.24-.01-.37.11-.49.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.04-.46-.08-.12-.5-1.2-.68-1.65-.18-.43-.37-.37-.51-.38-.13-.01-.29-.01-.45-.01s-.42.06-.64.3c-.22.24-.85.83-.85 2.02s.87 2.34 1 2.5c.12.16 1.7 2.6 4.13 3.54 2.43.94 2.43.63 2.87.59.43-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <span class="card-tag">Xadrez</span>
+        <img src="images/Pashimina_012.jpeg" alt="Pashmina 012 toque de cashmere Areia Multi">
+      </div>
+      <div class="card-body">
+        <h3>Pashmina 012</h3>
+        <p>Toque de cashmere em xadrez areia com linhas em marrom, azul e branco. Riqueza de detalhes em uma base neutra, fácil de combinar.</p>
+        <div class="card-footer">
+          <span class="price">R$ 60,00</span>
+          <a class="btn-whats" href="https://wa.me/5511980575520?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20a%20Pashmina%20012%20%28Areia%20Multi%29%20%28R%24%2060%2C00%29.">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.44 5.13L2 22l5.13-1.55a9.8 9.8 0 0 0 4.91 1.32h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.13-2.9-7C17.18 3.03 14.69 2 12.04 2zm0 18.02h-.01a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.04.92.92-2.96-.19-.31a8.13 8.13 0 0 1-1.25-4.36c0-4.49 3.65-8.14 8.15-8.14 2.18 0 4.22.85 5.76 2.39a8.07 8.07 0 0 1 2.38 5.76c0 4.49-3.66 8.14-8.15 8.14zm4.47-6.1c-.24-.12-1.45-.71-1.67-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.95-1.2-.72-.64-1.21-1.43-1.35-1.67-.14-.24-.01-.37.11-.49.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.04-.46-.08-.12-.5-1.2-.68-1.65-.18-.43-.37-.37-.51-.38-.13-.01-.29-.01-.45-.01s-.42.06-.64.3c-.22.24-.85.83-.85 2.02s.87 2.34 1 2.5c.12.16 1.7 2.6 4.13 3.54 2.43.94 2.43.63 2.87.59.43-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <span class="card-tag">Xadrez</span>
+        <img src="images/Pashimina_013.jpeg" alt="Pashmina 013 toque de cashmere Rosa">
+      </div>
+      <div class="card-body">
+        <h3>Pashmina 013</h3>
+        <p>Toque de cashmere em xadrez rosa claro com linhas em tons pastel. Uma opção romântica e suave para quem busca delicadeza no look de frio.</p>
+        <div class="card-footer">
+          <span class="price">R$ 60,00</span>
+          <a class="btn-whats" href="https://wa.me/5511980575520?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20a%20Pashmina%20013%20%28Rosa%29%20%28R%24%2060%2C00%29.">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.44 5.13L2 22l5.13-1.55a9.8 9.8 0 0 0 4.91 1.32h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.13-2.9-7C17.18 3.03 14.69 2 12.04 2zm0 18.02h-.01a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.04.92.92-2.96-.19-.31a8.13 8.13 0 0 1-1.25-4.36c0-4.49 3.65-8.14 8.15-8.14 2.18 0 4.22.85 5.76 2.39a8.07 8.07 0 0 1 2.38 5.76c0 4.49-3.66 8.14-8.15 8.14zm4.47-6.1c-.24-.12-1.45-.71-1.67-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.95-1.2-.72-.64-1.21-1.43-1.35-1.67-.14-.24-.01-.37.11-.49.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.04-.46-.08-.12-.5-1.2-.68-1.65-.18-.43-.37-.37-.51-.38-.13-.01-.29-.01-.45-.01s-.42.06-.64.3c-.22.24-.85.83-.85 2.02s.87 2.34 1 2.5c.12.16 1.7 2.6 4.13 3.54 2.43.94 2.43.63 2.87.59.43-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <span class="card-tag">Poá</span>
+        <img src="images/Pashimina_014.jpeg" alt="Pashmina 014 toque de cashmere Cinza">
+      </div>
+      <div class="card-body">
+        <h3>Pashmina 014</h3>
+        <p>Toque de cashmere em cinza com poá e listras em azul-marinho. Um padrão gráfico e sofisticado, perfeito para dar um toque diferente ao look clássico.</p>
+        <div class="card-footer">
+          <span class="price">R$ 60,00</span>
+          <a class="btn-whats" href="https://wa.me/5511980575520?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20a%20Pashmina%20014%20%28Cinza%29%20%28R%24%2060%2C00%29.">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.44 5.13L2 22l5.13-1.55a9.8 9.8 0 0 0 4.91 1.32h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.13-2.9-7C17.18 3.03 14.69 2 12.04 2zm0 18.02h-.01a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.04.92.92-2.96-.19-.31a8.13 8.13 0 0 1-1.25-4.36c0-4.49 3.65-8.14 8.15-8.14 2.18 0 4.22.85 5.76 2.39a8.07 8.07 0 0 1 2.38 5.76c0 4.49-3.66 8.14-8.15 8.14zm4.47-6.1c-.24-.12-1.45-.71-1.67-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.95-1.2-.72-.64-1.21-1.43-1.35-1.67-.14-.24-.01-.37.11-.49.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.04-.46-.08-.12-.5-1.2-.68-1.65-.18-.43-.37-.37-.51-.38-.13-.01-.29-.01-.45-.01s-.42.06-.64.3c-.22.24-.85.83-.85 2.02s.87 2.34 1 2.5c.12.16 1.7 2.6 4.13 3.54 2.43.94 2.43.63 2.87.59.43-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <span class="card-tag">Lisa</span>
+        <img src="images/Pashimina_015.jpeg" alt="Pashmina 015 toque de cashmere Azul Serenity">
+      </div>
+      <div class="card-body">
+        <h3>Pashmina 015</h3>
+        <p>Toque de cashmere em azul serenity, lisa com textura sutil. Um tom suave e relaxante que combina tanto com looks formais quanto casuais.</p>
+        <div class="card-footer">
+          <span class="price">R$ 60,00</span>
+          <a class="btn-whats" href="https://wa.me/5511980575520?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20a%20Pashmina%20015%20%28Azul%20Serenity%29%20%28R%24%2060%2C00%29.">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.44 5.13L2 22l5.13-1.55a9.8 9.8 0 0 0 4.91 1.32h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.13-2.9-7C17.18 3.03 14.69 2 12.04 2zm0 18.02h-.01a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.04.92.92-2.96-.19-.31a8.13 8.13 0 0 1-1.25-4.36c0-4.49 3.65-8.14 8.15-8.14 2.18 0 4.22.85 5.76 2.39a8.07 8.07 0 0 1 2.38 5.76c0 4.49-3.66 8.14-8.15 8.14zm4.47-6.1c-.24-.12-1.45-.71-1.67-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.95-1.2-.72-.64-1.21-1.43-1.35-1.67-.14-.24-.01-.37.11-.49.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.04-.46-.08-.12-.5-1.2-.68-1.65-.18-.43-.37-.37-.51-.38-.13-.01-.29-.01-.45-.01s-.42.06-.64.3c-.22.24-.85.83-.85 2.02s.87 2.34 1 2.5c.12.16 1.7 2.6 4.13 3.54 2.43.94 2.43.63 2.87.59.43-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <span class="card-tag">Pompom</span>
+        <img src="images/Pashimina_016.jpeg" alt="Pashmina 016 toque de cashmere Caramelo">
+      </div>
+      <div class="card-body">
+        <h3>Pashmina 016</h3>
+        <p>Toque de cashmere em caramelo com pompons na lateral, em formato xale. Uma peça envolvente e cheia de charme para os dias mais frios.</p>
+        <div class="card-footer">
+          <span class="price">R$ 60,00</span>
+          <a class="btn-whats" href="https://wa.me/5511980575520?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20a%20Pashmina%20016%20%28Caramelo%29%20%28R%24%2060%2C00%29.">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.44 5.13L2 22l5.13-1.55a9.8 9.8 0 0 0 4.91 1.32h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.13-2.9-7C17.18 3.03 14.69 2 12.04 2zm0 18.02h-.01a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.04.92.92-2.96-.19-.31a8.13 8.13 0 0 1-1.25-4.36c0-4.49 3.65-8.14 8.15-8.14 2.18 0 4.22.85 5.76 2.39a8.07 8.07 0 0 1 2.38 5.76c0 4.49-3.66 8.14-8.15 8.14zm4.47-6.1c-.24-.12-1.45-.71-1.67-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.95-1.2-.72-.64-1.21-1.43-1.35-1.67-.14-.24-.01-.37.11-.49.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.04-.46-.08-.12-.5-1.2-.68-1.65-.18-.43-.37-.37-.51-.38-.13-.01-.29-.01-.45-.01s-.42.06-.64.3c-.22.24-.85.83-.85 2.02s.87 2.34 1 2.5c.12.16 1.7 2.6 4.13 3.54 2.43.94 2.43.63 2.87.59.43-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <span class="card-tag">Pompom</span>
+        <img src="images/Pashimina_017.jpeg" alt="Pashmina 017 toque de cashmere Off-White">
+      </div>
+      <div class="card-body">
+        <h3>Pashmina 017</h3>
+        <p>Toque de cashmere em off-white com pompons na lateral, em formato xale. Aconchegante e sofisticada, ideal para elevar qualquer produção de inverno.</p>
+        <div class="card-footer">
+          <span class="price">R$ 60,00</span>
+          <a class="btn-whats" href="https://wa.me/5511980575520?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20a%20Pashmina%20017%20%28Off-White%29%20%28R%24%2060%2C00%29.">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.44 5.13L2 22l5.13-1.55a9.8 9.8 0 0 0 4.91 1.32h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.13-2.9-7C17.18 3.03 14.69 2 12.04 2zm0 18.02h-.01a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.04.92.92-2.96-.19-.31a8.13 8.13 0 0 1-1.25-4.36c0-4.49 3.65-8.14 8.15-8.14 2.18 0 4.22.85 5.76 2.39a8.07 8.07 0 0 1 2.38 5.76c0 4.49-3.66 8.14-8.15 8.14zm4.47-6.1c-.24-.12-1.45-.71-1.67-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.95-1.2-.72-.64-1.21-1.43-1.35-1.67-.14-.24-.01-.37.11-.49.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.04-.46-.08-.12-.5-1.2-.68-1.65-.18-.43-.37-.37-.51-.38-.13-.01-.29-.01-.45-.01s-.42.06-.64.3c-.22.24-.85.83-.85 2.02s.87 2.34 1 2.5c.12.16 1.7 2.6 4.13 3.54 2.43.94 2.43.63 2.87.59.43-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <span class="card-tag">Pompom</span>
+        <img src="images/Pashimina_018.jpeg" alt="Pashmina 018 toque de cashmere Preta">
+      </div>
+      <div class="card-body">
+        <h3>Pashmina 018</h3>
+        <p>Toque de cashmere em preto com pompons na lateral, em formato xale. Versátil e elegante, a escolha certa para um visual atemporal.</p>
+        <div class="card-footer">
+          <span class="price">R$ 60,00</span>
+          <a class="btn-whats" href="https://wa.me/5511980575520?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20a%20Pashmina%20018%20%28Preta%29%20%28R%24%2060%2C00%29.">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.44 5.13L2 22l5.13-1.55a9.8 9.8 0 0 0 4.91 1.32h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.13-2.9-7C17.18 3.03 14.69 2 12.04 2zm0 18.02h-.01a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.04.92.92-2.96-.19-.31a8.13 8.13 0 0 1-1.25-4.36c0-4.49 3.65-8.14 8.15-8.14 2.18 0 4.22.85 5.76 2.39a8.07 8.07 0 0 1 2.38 5.76c0 4.49-3.66 8.14-8.15 8.14zm4.47-6.1c-.24-.12-1.45-.71-1.67-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.95-1.2-.72-.64-1.21-1.43-1.35-1.67-.14-.24-.01-.37.11-.49.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.04-.46-.08-.12-.5-1.2-.68-1.65-.18-.43-.37-.37-.51-.38-.13-.01-.29-.01-.45-.01s-.42.06-.64.3c-.22.24-.85.83-.85 2.02s.87 2.34 1 2.5c.12.16 1.7 2.6 4.13 3.54 2.43.94 2.43.63 2.87.59.43-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <span class="card-tag">Xadrez</span>
+        <img src="images/Pashimina_019.jpeg" alt="Pashmina 019 toque de cashmere Pied-de-Poule">
+      </div>
+      <div class="card-body">
+        <h3>Pashmina 019</h3>
+        <p>Toque de cashmere em padrão pied-de-poule cinza e branco. Um clássico da moda, perfeito para dar sofisticação a qualquer combinação.</p>
+        <div class="card-footer">
+          <span class="price">R$ 60,00</span>
+          <a class="btn-whats" href="https://wa.me/5511980575520?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20a%20Pashmina%20019%20%28Pied-de-Poule%29%20%28R%24%2060%2C00%29.">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.44 5.13L2 22l5.13-1.55a9.8 9.8 0 0 0 4.91 1.32h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.13-2.9-7C17.18 3.03 14.69 2 12.04 2zm0 18.02h-.01a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.04.92.92-2.96-.19-.31a8.13 8.13 0 0 1-1.25-4.36c0-4.49 3.65-8.14 8.15-8.14 2.18 0 4.22.85 5.76 2.39a8.07 8.07 0 0 1 2.38 5.76c0 4.49-3.66 8.14-8.15 8.14zm4.47-6.1c-.24-.12-1.45-.71-1.67-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.95-1.2-.72-.64-1.21-1.43-1.35-1.67-.14-.24-.01-.37.11-.49.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.04-.46-.08-.12-.5-1.2-.68-1.65-.18-.43-.37-.37-.51-.38-.13-.01-.29-.01-.45-.01s-.42.06-.64.3c-.22.24-.85.83-.85 2.02s.87 2.34 1 2.5c.12.16 1.7 2.6 4.13 3.54 2.43.94 2.43.63 2.87.59.43-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="strip" id="cuidados">
+  <div class="strip-inner">
+    <div class="strip-item">
+      <span class="num">Material</span>
+      <h3>Toque de cashmere</h3>
+      <p>Fibra macia ao toque, leve e quentinha, pensada para o uso diário sem pesar no look.</p>
+    </div>
+    <div class="strip-item">
+      <span class="num">Cuidado</span>
+      <h3>Lavagem delicada</h3>
+      <p>Prefira lavar à mão com água fria e secar à sombra, estendida, para preservar a textura e as franjas.</p>
+    </div>
+    <div class="strip-item">
+      <span class="num">Atendimento</span>
+      <h3>Direto pelo WhatsApp</h3>
+      <p>Tire dúvidas sobre cores, combine a entrega e finalize sua compra com atendimento pessoal.</p>
+    </div>
+  </div>
+</section>
+
+<footer id="contato">
+  <div class="logo">TANS</div>
+  <div class="foot-contact">
+    Pedidos e dúvidas: <a href="https://wa.me/5511980575520">(11) 98057-5520</a>
+  </div>
+</footer>
+
+</body>
+</html>
